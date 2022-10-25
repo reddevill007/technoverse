@@ -1,11 +1,11 @@
 import Image from "next/image";
-import  SidebarLink from "./SidebarLink";
-import {BsHash} from "react-icons/bs"
-import {AiFillHome, AiFillBell} from "react-icons/ai"
-import {MdOutlineForwardToInbox, MdOutlineMoreHoriz} from "react-icons/md"
-import {BsFillBookmarkFill, BsClipboardCheck} from "react-icons/bs"
-import {FaUserAlt} from "react-icons/fa"
-import {CgMoreO} from "react-icons/cg";
+import SidebarLink from "./SidebarLink";
+import { BsHash } from "react-icons/bs"
+import { AiFillHome, AiFillBell } from "react-icons/ai"
+import { MdOutlineForwardToInbox, MdOutlineMoreHoriz } from "react-icons/md"
+import { BsFillBookmarkFill, BsClipboardCheck } from "react-icons/bs"
+import { FaUserAlt } from "react-icons/fa"
+import { CgMoreO } from "react-icons/cg";
 
 const Sidebar = () => {
     return (

@@ -1,9 +1,15 @@
 import Head from "next/head";
 import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
+import Login from "../components/Login";
 
+import { getProviders, getSession, useSession } from "next-auth/react";
 
-const Home = () => {
+const Home = ({ trendingResults, providers }) => {
+  const { data: session } = useSession();
+
+  if (!session) return <Login providers={providers} />;
+
   return (
     <div>
       <Head>
@@ -24,3 +30,25 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getServerSideProps(context) {
+  const trendingResults = await fetch(
+    "https://gnews.io/api/v4/search?lang=en&country=in&q=sports&token=be3d5b0e883f00ffabb233f6f7032716"
+  ).then((res) => res.json());
+
+  // console.log(trendingResults);
+  // const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
+  //   (res) => res.json()
+  // );
+  const providers = await getProviders();
+  const session = await getSession(context);
+
+  return {
+    props: {
+      trendingResults,
+      // followResults,
+      providers,
+      session,
+    },
+  };
+}
