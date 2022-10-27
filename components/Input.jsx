@@ -15,6 +15,7 @@ import { BiPhotoAlbum } from "react-icons/bi"
 import { BsEmojiSmile, BsFillBarChartFill, BsFillCalendarDateFill } from "react-icons/bs"
 
 import Picker from '@emoji-mart/react'
+import { useSession } from 'next-auth/react';
 
 
 const Input = () => {
@@ -51,6 +52,10 @@ const Input = () => {
         setLoading(true);
 
         const docRef = await addDoc(collection(db, 'posts'), {
+            id: session.user.uid,
+            username: session.user.name,
+            tag: session.user.tag,
+            userImg: session.user.image,
             text: input,
             timstamp: serverTimestamp(),
         })
@@ -72,10 +77,12 @@ const Input = () => {
         setShowEmojis(false);
     }
 
+    const { data: session } = useSession();
 
     return (
+
         <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll no-scrollbar ${loading && "opacity-60"}`}>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCT6ifq3Wo5EACfxc3xIeVVdogS_OJsjHOdw&usqp=CAU" alt="profile" className="h-11 w-11 rounded-full cursor-pointer object-cover" />
+            <img src={session.user.image} alt="profile" className="h-11 w-11 rounded-full cursor-pointer object-cover" />
             <div className='w-full divide-y divide-gray-700'>
                 <div className={`${selectedFiles && "pb-7"} ${input && "space-y-2.5"}`}>
                     <textarea
@@ -88,7 +95,7 @@ const Input = () => {
 
                     {selectedFiles && (
                         <div className="relative">
-                            <div className="absolute w-8 h-8 bg-[#13181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center top-1 left-1 cursor-pointer" onClick={() => setSelectedFiles(null)}>
+                            <div className="absolute w-8 h-8 bg-[#13181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer" onClick={() => setSelectedFiles(null)}>
                                 <AiOutlineClose className="text-white h-5" />
                             </div>
                             <img src={selectedFiles} alt="img" className='rounded-2xl max-h-80 object-contain' />

@@ -5,7 +5,7 @@ import Login from "../components/Login";
 
 import { getProviders, getSession, useSession } from "next-auth/react";
 
-const Home = ({ trendingResults, providers }) => {
+const Home = ({ trendingNews, providers }) => {
   const { data: session } = useSession();
 
   if (!session) return <Login providers={providers} />;
@@ -32,7 +32,7 @@ const Home = ({ trendingResults, providers }) => {
 export default Home;
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch(
+  const trendingNews = await fetch(
     "https://gnews.io/api/v4/search?lang=en&country=in&q=sports&token=be3d5b0e883f00ffabb233f6f7032716"
   ).then((res) => res.json());
 
@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      trendingResults,
+      trendingNews,
       // followResults,
       providers,
       session,
