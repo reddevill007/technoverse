@@ -1,11 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import SidebarLink from "./SidebarLink";
-import { BsHash } from "react-icons/bs"
-import { AiFillHome, AiFillBell } from "react-icons/ai"
-import { MdOutlineForwardToInbox, MdOutlineMoreHoriz } from "react-icons/md"
-import { BsFillBookmarkFill, BsClipboardCheck } from "react-icons/bs"
-import { FaUserAlt } from "react-icons/fa"
-import { CgMoreO } from "react-icons/cg";
+
+import { MdOutlineMoreHoriz } from "react-icons/md";
+
+
 import { signOut, useSession } from "next-auth/react";
 
 
@@ -19,14 +18,7 @@ const Sidebar = () => {
             </div>
 
             <div className="gap-y-2.5 mt-4 mb-2.5 xl:ml-24">
-                <SidebarLink text="Home" Icon={AiFillHome} active />
-                <SidebarLink text="Explore" Icon={BsHash} />
-                <SidebarLink text="Notification" Icon={AiFillBell} />
-                <SidebarLink text="Message" Icon={MdOutlineForwardToInbox} />
-                <SidebarLink text="Bookmarks" Icon={BsFillBookmarkFill} />
-                <SidebarLink text="Lists" Icon={BsClipboardCheck} />
-                <SidebarLink text="Profile" Icon={FaUserAlt} />
-                <SidebarLink text="More" Icon={CgMoreO} />
+                <SidebarLink />
             </div>
 
             <button className="hidden xl:inline ml-auto bg-[#1d9bf0] rounded-full w-56 h-[52px] shadow-md hover:bg-[#1a8cda]">Tweet</button>
