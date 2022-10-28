@@ -35,11 +35,9 @@ const Feed = () => {
       <Input />
 
       <div className="pb-72">
-        calling post
         {posts.map((post) => (
           <Post key={post.id} id={post.id} post={post.data()} />
         ))}
-        ending call
       </div>
     </div>
   )
