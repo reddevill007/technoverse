@@ -1,9 +1,17 @@
 import Image from 'next/image'
 import { signIn } from 'next-auth/react';
+import bg from "../assets/bg.png"
 
 const Login = ({ providers }) => {
     return (
-        <div className='flex flex-col items-center space-y-20 pt-48'>
+        <div className='flex flex-col items-center space-y-20 pt-48' style={{
+            backgroundImage: `url(${bg.src})`,
+            width: '100%',
+            height: '100vh',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+        }}>
             <Image src="https://rb.gy/ogau5a" width={150} height={150} objectFit="contain" />
             <div>
                 {Object.values(providers).map((provider) => (

@@ -1,23 +1,25 @@
 import Sidebar from "../components/Sidebar";
-import JobComp from "../components/JobComp";
-import Login from "../components/Login";
+import News from "../components/News";
 
 import { getProviders, getSession, useSession } from "next-auth/react";
+import { useGlobalContext } from "../assets/context";
 
-const jobs = ({ providers }) => {
+const news = ({ providers }) => {
   const { data: session } = useSession();
 
   if (!session) return <Login providers={providers} />;
 
+  const data = useGlobalContext();
+
   return (
-    <div>
+    <div className="bg-gradient-to-r from-black via-gray-900 to-black min-h-screen flex w-full">
       <Sidebar />
-      <JobComp />
+      <News data={data} />
     </div>
   );
 };
 
-export default jobs;
+export default news;
 
 export async function getServerSideProps(context) {
   const providers = await getProviders();

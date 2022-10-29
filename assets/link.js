@@ -16,7 +16,7 @@ export const listData = [
     id: 2,
     text: "Explore",
     Icon: <BsHash className="h-10 text-white" />,
-    link: "/",
+    link: "/news",
   },
   {
     id: 3,
