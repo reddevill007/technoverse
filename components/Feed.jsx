@@ -27,7 +27,7 @@ const Feed = () => {
       <div className="text-[#d9d9d9] bg-gradient-to-r from-black via-gray-900 to-black items-center flex sm:justify-between py-2 px-3 sticky top-0 z-50 border-b border-gray-700">
         <h2 className="text-lg sm:text-xl font-bold">Home</h2>
         <div className="hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0">
-          <HiSparkles className="h-5 text-white" size={20} />
+          <HiSparkles className="h-5 text-yellow-500" size={20} />
         </div>
       </div>
 

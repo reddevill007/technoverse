@@ -20,6 +20,7 @@ import Moment from "react-moment";
 import { modalState, postIdState } from "../atoms/modalAtom"
 import { useRecoilState } from "recoil";
 import { db } from "../firebase";
+import Linkify from "react-linkify";
 
 const Post = ({ id, post, postPage }) => {
     const { data: session } = useSession();
@@ -29,6 +30,13 @@ const Post = ({ id, post, postPage }) => {
     const [liked, setLiked] = useState(false);
     const [likes, setLikes] = useState([]);
     const router = useRouter();
+
+    useEffect(() =>
+        onSnapshot(collection(db, "posts", id, "comments"), orderBy("timestamp", "desc"), (snapshot) =>
+            setComments(snapshot.docs)
+        ),
+        [db, id]
+    );
 
     useEffect(() =>
         onSnapshot(collection(db, "posts", id, "likes"), (snapshot) =>
@@ -80,7 +88,9 @@ const Post = ({ id, post, postPage }) => {
                             <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
                         </span>
                         {!postPage && (
-                            <p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>{post?.text}</p>
+                            <Linkify properties={{ target: '_blank', style: { color: 'red', fontWeight: 'bold' } }}>
+                                <p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>{post?.text}</p>
+                            </Linkify>
                         )}
                     </div>
 
@@ -89,7 +99,9 @@ const Post = ({ id, post, postPage }) => {
                     </div>
                 </div>
                 {postPage && (
-                    <p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>{post?.text}</p>
+                    <Linkify properties={{ target: '_blank', style: { color: 'red', fontWeight: 'bold' } }}>
+                        <p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>{post?.text}</p>
+                    </Linkify>
                 )}
                 {post?.image && (<img src={post?.image} className="rounded-2xl max-h-[720px] object-cover mr-2 border border-blue-700" alt="post image" />)}
 

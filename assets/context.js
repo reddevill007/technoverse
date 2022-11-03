@@ -22,7 +22,6 @@ const AppProvider = ({ children }) => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data);
 
       dispatch({
         type: "GET_STORIES",
@@ -36,16 +35,30 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const searchPost = (searchQuery) => {
+    dispatch({ type: "SEARCH_QUERY", payload: searchQuery });
+  };
+
   const removePost = (post_id) => {
     dispatch({ type: "REMOVE_POST", payload: post_id });
   };
 
+  const getNextPage = () => {
+    dispatch({ type: "NEXT_PAGE" });
+  };
+
+  const getPrevPage = () => {
+    dispatch({ type: "PREV_PAGE" });
+  };
+
   useEffect(() => {
-    fetchApiData(`${API}query=${state.query}`);
-  }, []);
+    fetchApiData(`${API}query=${state.query}&page=${state.page}`);
+  }, [state.query, state.page]);
 
   return (
-    <AppContext.Provider value={{ ...state, removePost }}>
+    <AppContext.Provider
+      value={{ ...state, removePost, searchPost, getPrevPage, getNextPage }}
+    >
       {children}
     </AppContext.Provider>
   );
