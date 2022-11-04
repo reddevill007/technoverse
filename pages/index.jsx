@@ -7,10 +7,11 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 import Modal from "../components/Modal";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atoms/modalAtom";
+import Asidebar from "../components/Asidebar";
 
-const Home = ({ trendingNews, providers }) => {
+const Home = ({ providers }) => {
   const { data: session } = useSession();
-  const [isOpen, setIsOpen] = useRecoilState(modalState);
+  const [isOpen] = useRecoilState(modalState);
 
   if (!session) return <Login providers={providers} />;
 
@@ -27,6 +28,8 @@ const Home = ({ trendingNews, providers }) => {
         <Feed />
 
         {isOpen ? <Modal /> : null}
+
+        <Asidebar />
       </main>
     </div>
   );

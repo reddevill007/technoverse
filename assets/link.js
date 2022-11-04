@@ -46,7 +46,7 @@ export const listData = [
     id: 7,
     text: "Profile",
     Icon: <FaUserAlt className="h-10 text-white" />,
-    link: "/",
+    link: "/profile",
   },
 
   {
