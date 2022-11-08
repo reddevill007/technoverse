@@ -10,7 +10,7 @@ const jobs = ({ providers }) => {
   if (!session) return <Login providers={providers} />;
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-black via-gray-900 to-black min-h-screen w-full">
       <Sidebar />
       <JobComp />
     </div>

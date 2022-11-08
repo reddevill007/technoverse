@@ -14,34 +14,34 @@ export const listData = [
   },
   {
     id: 2,
-    text: "Explore",
+    text: "News",
     Icon: <BsHash className="h-10 text-white" />,
     link: "/news",
   },
   {
     id: 3,
-    text: "Notification",
+    text: "Jobs",
     Icon: <AiFillBell className="h-10 text-white" />,
     link: "/jobs",
   },
-  {
-    id: 4,
-    text: "Message",
-    Icon: <MdOutlineForwardToInbox className="h-10 text-white" />,
-    link: "/",
-  },
-  {
-    id: 5,
-    text: "Bookmarks",
-    Icon: <BsFillBookmarkFill className="h-10 text-white" />,
-    link: "/",
-  },
-  {
-    id: 6,
-    text: "Lists",
-    Icon: <BsClipboardCheck className="h-10 text-white" />,
-    link: "/",
-  },
+  // {
+  //   id: 4,
+  //   text: "Message",
+  //   Icon: <MdOutlineForwardToInbox className="h-10 text-white" />,
+  //   link: "/",
+  // },
+  // {
+  //   id: 5,
+  //   text: "Bookmarks",
+  //   Icon: <BsFillBookmarkFill className="h-10 text-white" />,
+  //   link: "/",
+  // },
+  // {
+  //   id: 6,
+  //   text: "Lists",
+  //   Icon: <BsClipboardCheck className="h-10 text-white" />,
+  //   link: "/",
+  // },
   {
     id: 7,
     text: "Profile",
@@ -56,16 +56,3 @@ export const listData = [
     link: "/",
   },
 ];
-
-/*
-
-<SidebarLink text="Home" Icon={AiFillHome} active />
-<SidebarLink text="Explore" Icon={BsHash} />
-<SidebarLink text="Notification" Icon={AiFillBell} />
-<SidebarLink text="Message" Icon={MdOutlineForwardToInbox} />
-<SidebarLink text="Bookmarks" Icon={BsFillBookmarkFill} />
-<SidebarLink text="Lists" Icon={BsClipboardCheck} />
-<SidebarLink text="Profile" Icon={FaUserAlt} />
-<SidebarLink text="More" Icon={CgMoreO} />
-
-*/

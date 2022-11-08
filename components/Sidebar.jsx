@@ -12,16 +12,15 @@ const Sidebar = () => {
     const { data: session } = useSession();
 
     return (
-        <div className="hidden sm:flex flex-col items-center xl:items-start xl:w-[340px] p-2 fixed h-full text-[#d9d9d9]">
+        <div className="bg-gradient-to-r from-black via-gray-900 to-black bottom-0 left-0 flex flex-row h-20 w-full md:w-14 md:top-0 sm:flex md:flex-col items-center xl:items-start xl:w-[340px] p-2 fixed md:h-full text-[#d9d9d9]">
             <div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24">
                 <Image src="https://rb.gy/ogau5a" width={30} height={30} />
             </div>
 
-            <div className="gap-y-2.5 mt-4 mb-2.5 xl:ml-24">
+            <div className="gap-y-2.5 flex md:flex-col mt-4 mb-2.5 xl:ml-24">
                 <SidebarLink />
             </div>
 
-            <button className="hidden xl:inline ml-auto bg-[#1d9bf0] rounded-full w-56 h-[52px] shadow-md hover:bg-[#1a8cda]">Tweet</button>
 
             <div className="text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto xl:-mr-5 mt-auto" onClick={signOut}>
                 <img

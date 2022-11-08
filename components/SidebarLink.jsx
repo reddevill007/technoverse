@@ -2,7 +2,7 @@ import Link from "next/link";
 import { listData } from "../assets/link"
 
 
-const SidebarLink = ({ text, Icon, active }) => {
+const SidebarLink = ({ active }) => {
   return (
     <>
       {
