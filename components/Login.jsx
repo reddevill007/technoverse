@@ -12,7 +12,7 @@ const Login = ({ providers }) => {
             backgroundSize: 'cover',
             backgroundPosition: 'center'
         }}>
-            <Image src="https://raw.githubusercontent.com/reddevill007/technoverse/master/public/logo.png" width={150} height={150} objectFit="contain" />
+            <Image src="/logo.png" width={150} height={150} objectFit="contain" />
             <div>
                 {Object.values(providers).map((provider) => (
                     <div key={provider.name}>

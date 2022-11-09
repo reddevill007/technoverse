@@ -14,7 +14,7 @@ const Sidebar = () => {
     return (
         <div className="bg-gradient-to-r from-black via-gray-900 to-black bottom-0 left-0 flex flex-row h-20 w-full md:w-14 md:top-0 sm:flex md:flex-col items-center xl:items-start xl:w-[340px] p-2 fixed md:h-full text-[#d9d9d9]">
             <div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24">
-                <Image src="https://raw.githubusercontent.com/reddevill007/technoverse/master/public/logo.png" width={30} height={30} />
+                <Image src="/logo.png" width={30} height={30} />
             </div>
 
             <div className="gap-y-2.5 flex md:flex-col mt-4 mb-2.5 xl:ml-24">
