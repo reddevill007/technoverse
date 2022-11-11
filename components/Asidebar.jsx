@@ -13,7 +13,7 @@ const Asidebar = () => {
                 {hits.slice(0, 5).map((result) => {
                     const { title, author, objectID, url } = result;
                     return (
-                        <div className="flex flex-col gap-y-2 border-b border-gray-400 p-3" key={objectID}>
+                        <div className="flex flex-col gap-y-2 border-b border-gray-400 p-3 w-[180px]" key={objectID}>
                             <h2 className="text-xl mb-2 font-bold dark:text-white">{title}</h2>
                             <p className="mb-3 text-md font-light text-gray-500 flex items-center gap-2">
                                 By - {author}
