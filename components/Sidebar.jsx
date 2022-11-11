@@ -3,8 +3,6 @@ import Link from "next/link";
 import SidebarLink from "./SidebarLink";
 
 import { MdOutlineMoreHoriz } from "react-icons/md";
-
-
 import { signOut, useSession } from "next-auth/react";
 
 
@@ -14,7 +12,9 @@ const Sidebar = () => {
     return (
         <div className="bg-gradient-to-r from-black via-gray-900 to-black bottom-0 left-0 flex flex-row h-20 w-full md:w-14 md:top-0 sm:flex md:flex-col items-center xl:items-start xl:w-[340px] p-2 fixed md:h-full text-[#d9d9d9]">
             <div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24">
-                <Image src="/logo.png" width={30} height={30} />
+                <Link href="/">
+                    <Image src="/logo.png" width={30} height={30} />
+                </Link>
             </div>
 
             <div className="gap-y-2.5 flex md:flex-col mt-4 mb-2.5 xl:ml-24">

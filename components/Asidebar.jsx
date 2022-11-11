@@ -1,4 +1,4 @@
-import { BiSearch } from "react-icons/bi";
+import Link from "next/link";
 import { useGlobalContext } from "../assets/context"
 import Search from "./Search";
 
@@ -6,7 +6,7 @@ const Asidebar = () => {
     const { hits } = useGlobalContext();
 
     return (
-        <div className="hidden fixed top-0 right-20 no-scrollbar overflow-y-scroll max-h-screen lg:inline ml-8 xl:w-[350px] py-1 space-y-5">
+        <div className="hidden md:hidden lg:hidden fixed top-0 right-20 no-scrollbar overflow-y-scroll max-h-screen ml-8 xl:w-[350px] py-1 space-y-5">
             <Search />
             <div className="text-[#d9d9d9] mx-auto space-y-3 bg-[#15181c] pt-2 rounded-xl w-11/12 xl:w-9/12">
                 <h4 className="font-bold text-xl px-4">What's happening</h4>
@@ -25,7 +25,9 @@ const Asidebar = () => {
                     )
                 })}
                 <button className="hover:bg-white hover:bg-opacity-[0.03] px-4 py-3 cursor-pointer transition duration-200 ease-out flex items-center justify-between w-full text-[#1d9bf0] font-light">
-                    Show more
+                    <Link href="/news">
+                        Show more
+                    </Link>
                 </button>
             </div>
         </div>
