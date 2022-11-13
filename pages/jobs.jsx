@@ -3,6 +3,7 @@ import JobComp from "../components/JobComp";
 import Login from "../components/Login";
 
 import { getProviders, getSession, useSession } from "next-auth/react";
+import Head from "next/head";
 
 const jobs = ({ providers }) => {
   const { data: session } = useSession();
