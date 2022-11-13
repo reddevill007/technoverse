@@ -3,6 +3,7 @@ import News from "../components/News";
 
 import { getProviders, getSession, useSession } from "next-auth/react";
 import { useGlobalContext } from "../assets/context";
+import Head from "next/head";
 
 const news = ({ providers }) => {
   const { data: session } = useSession();
@@ -13,6 +14,10 @@ const news = ({ providers }) => {
 
   return (
     <div className="bg-gradient-to-r from-black via-gray-900 to-black min-h-screen flex w-full">
+      <Head>
+        <title>Technoverse - News</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Sidebar />
       <News data={data} />
     </div>

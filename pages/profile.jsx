@@ -5,6 +5,7 @@ import ProfileComp from '../components/ProfileComp';
 import { db } from '../firebase';
 import Sidebar from "../components/Sidebar"
 import Login from "../components/Login"
+import Head from 'next/head';
 
 const profile = ({ providers }) => {
     const { data: session } = useSession();
@@ -25,6 +26,10 @@ const profile = ({ providers }) => {
 
     return (
         <div>
+            <Head>
+                <title>{session.user.name}</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Sidebar />
             <div className='sm:ml-[73px] xl:ml-[370px]'>
                 <div className="flex w-full justify-center items-center py-5">

@@ -11,6 +11,10 @@ const jobs = ({ providers }) => {
 
   return (
     <div className="bg-gradient-to-r from-black via-gray-900 to-black min-h-screen w-full">
+      <Head>
+        <title>Technoverse - Jobs</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Sidebar />
       <JobComp />
     </div>
